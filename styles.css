@@ -1,0 +1,433 @@
+:root {
+    --primary-dark: #1E1E1E;
+    --primary-grey: #2D2D2D;
+    --secondary-grey: #3D3D3D;
+    --accent-green: #50fa7b;
+    --text-primary: #FFFFFF;
+    --text-secondary: #BBBBBB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--primary-grey);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, var(--text-primary), var(--accent-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: var(--secondary-grey);
+    border: 2px solid transparent;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-green);
+    box-shadow: 0 5px 15px rgba(80, 250, 123, 0.2);
+}
+
+.buy-now {
+    background-color: var(--accent-green);
+    color: var(--primary-dark);
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.buy-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(80, 250, 123, 0.3);
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#predictorForm {
+    background-color: var(--primary-grey);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--secondary-grey);
+    border-radius: 8px;
+    background-color: var(--secondary-grey);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(80, 250, 123, 0.1);
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.predict-btn {
+    background-color: var(--accent-green);
+    color: var(--primary-dark);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.predict-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(80, 250, 123, 0.3);
+}
+
+#prediction {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-grey);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#prediction.hidden {
+    display: none;
+}
+
+#projectImageDisplay {
+    max-width: 200px;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.prediction-value {
+    background-color: var(--secondary-grey);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.prediction-value h3 {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+#marketCapPrediction {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .social-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.image-upload-container {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--secondary-grey);
+    border: 2px dashed var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.image-upload-label i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image-preview {
+    margin-top: 1rem;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.image-preview.hidden {
+    display: none;
+}
+
+.image-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.remove-image {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-grey);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.remove-image:hover {
+    background-color: #ff4444;
+    transform: scale(1.1);
+}
+
+.loading-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-grey);
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-green);
+}
+
+.loading-bar {
+    width: 100%;
+    height: 6px;
+    background-color: var(--secondary-grey);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--accent-green);
+    border-radius: 3px;
+    animation: progress 10s linear;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.prediction-results {
+    text-align: center;
+    padding: 2rem;
+}
+
+.result-image {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.prediction-results h2 {
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+}
+
+.prediction-results .ticker {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.market-cap {
+    background-color: var(--secondary-grey);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.prediction-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.try-again-btn {
+    background-color: var(--accent-green);
+    color: var(--primary-dark);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.try-again-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(80, 250, 123, 0.3);
+}
+
+.feedback {
+    margin-top: 0.5rem;
+    background-color: var(--secondary-grey);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.feedback h4 {
+    margin-bottom: 0.5rem;
+    color: var(--accent-green);
+}
+
+.feedback p {
+    color: var(--text-secondary);
+}
+
+.disclaimer-banner {
+    background-color: var(--primary-grey);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--secondary-grey);
+}
+
+.disclaimer-unique {
+    color: #ff4444;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: 4px;
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+.market-cap {
+    margin-bottom: 0.5rem;
+}
+
+.feedback {
+    margin-top: 0.5rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.logo svg {
+    transition: transform 0.3s ease;
+}
+
+.logo:hover svg {
+    transform: scale(1.1);
+}
+
+.money-sign {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+header {
+    background-color: var(--primary-grey);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

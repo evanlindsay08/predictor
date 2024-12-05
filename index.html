@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PumpFun Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>
+            <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Crystal Ball -->
+                    <circle cx="50" cy="50" r="30" fill="#50fa7b" stroke="#1E1E1E" stroke-width="3"/>
+                    <!-- Upward Arrow -->
+                    <path d="M50 30 L50 60 M50 30 L40 40 M50 30 L60 40" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Base -->
+                    <rect x="40" y="60" width="20" height="10" fill="#1E1E1E"/>
+                </svg>
+            </div>
+            PumpFun Predictor
+        </h1>
+        <div class="social-buttons">
+            <a href="#" class="social-btn twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-btn telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </header>
+
+    <div class="disclaimer-banner">
+        This is for entertainment purposes only. Not financial advice.
+    </div>
+
+    <main>
+        <form id="predictorForm">
+            <div class="input-group">
+                <input type="text" id="projectName" placeholder="Project Name" required>
+                <input type="text" id="projectTicker" placeholder="Project Ticker" required>
+            </div>
+            <textarea id="projectDescription" placeholder="Project Description (optional)"></textarea>
+            <div class="image-upload-container">
+                <label for="projectImage" class="image-upload-label">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Project Image</span>
+                </label>
+                <input type="file" id="projectImage" accept="image/*" required>
+                <div id="imagePreview" class="image-preview hidden">
+                    <img id="uploadPreview" src="" alt="Preview">
+                    <button type="button" id="removeImage" class="remove-image">×</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="url" id="twitter" placeholder="Twitter URL (optional)">
+                <input type="url" id="telegram" placeholder="Telegram URL (optional)">
+                <input type="url" id="website" placeholder="Website URL (optional)">
+            </div>
+            <button type="submit" class="predict-btn">Predict Market Cap</button>
+        </form>
+
+        <div id="prediction" class="hidden">
+            <img id="projectImageDisplay" src="" alt="Project Image">
+            <h2 id="projectNameDisplay"></h2>
+            <p id="tickerDisplay"></p>
+            <div class="prediction-value">
+                <h3>Predicted Market Cap:</h3>
+                <p id="marketCapPrediction"></p>
+            </div>
+        </div>
+    </main>
+    <script src="predictor.js"></script>
+</body>
+</html>
